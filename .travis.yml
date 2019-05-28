@@ -3,6 +3,7 @@ services:
   - docker
 
 before install:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t steveguojiachen/docker-react -f Dockerfile.dev .
 
 script:
